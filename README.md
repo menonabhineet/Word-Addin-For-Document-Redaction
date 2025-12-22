@@ -23,7 +23,7 @@ Create a button that will redact sensitive information from a Word document, add
 - Use self written CSS for styling instead of external libraries, we expect good design and craftsmanship.
 - The solution must run in Word on the web or Word desktop.
 - Don't create a public forked repository, otherwise your solution will be disqualified. Share your solution as a private repository or a zip file.
-- One of the evaluation criteria will be code quality, so please ensure your code is clean, well-structured, and follows best practices and crasftsmanship.
+- One of the evaluation criteria will be code quality, so please ensure your code is clean, well-structured, and follows best practices and crasftsmanship (non AI).
 
 
 ## Testing Your Solution
