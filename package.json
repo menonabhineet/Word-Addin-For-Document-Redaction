@@ -1,0 +1,34 @@
+{
+  "name": "office-addin-challenge",
+  "version": "0.0.1",
+  "private": true,
+  "config": {
+    "dev_server_port": 3000
+  },
+  "scripts": {
+    "dev": "npm run dev:https",
+    "start": "npm run start:desktop",
+    "watch": "tsc -w",
+    "dev-server": "http-server -S -C cert.pem -K key.pem --cors . -p 3000",
+    "build": "tsc",
+
+    "dev:https": "concurrently \"npm run watch\" \"npm run dev-server:https\"",
+    "dev-server:https": "http-server --cors . -p 3000 --ssl --cert %USERPROFILE%\\.office-addin-dev-certs\\localhost.crt --key %USERPROFILE%\\.office-addin-dev-certs\\localhost.key",
+
+    "install-dev-certs": "office-addin-dev-certs install",
+    "validate": "office-addin-manifest validate manifest.xml",
+
+    "start:desktop": "concurrently \"npm run watch\" \"npm run dev-server:https\" \"office-addin-debugging start manifest.xml\"",
+    "stop:desktop": "office-addin-debugging stop manifest.xml"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/office-js": "^1.0.377",
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1",
+    "office-addin-debugging": "^5.1.6",
+    "office-addin-dev-certs": "^1.13.5",
+    "office-addin-manifest": "^1.13.6",
+    "typescript": "^5.4.2"
+  }
+}
