@@ -1,31 +1,70 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Doco Task Pane Add-in</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Doco Challenge</title>
 
     <!-- Office JavaScript API -->
-    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script
+      type="text/javascript"
+      src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"
+    ></script>
 
-    <!-- Template styles -->
-    <style>
-        body {
-            font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-            font-size: 14px;
-            margin: 0;
-            padding: 10px;
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
 
-<body class="">
-    <main id="app-body">
-        <h1>Doco Challenge</h1>
-    </main>
-    <script type="text/javascript" src="taskpane.js"></script>
-</body>
+  <body>
+    <div class="app" id="app">
+      <header class="app__header">
+        <div class="brand">
+          <div class="brand__mark">DC</div>
+          <div class="brand__text">
+            <h1 class="brand__title">Add-In for Redaction</h1>
+            <p class="brand__subtitle">
+              Redact sensitive info, Add confidentiality header and Track changes
+            </p>
+          </div>
+        </div>
+      </header>
 
+      <main class="app__main">
+        <section class="card">
+          <h2 class="card__title">Actions</h2>
+          <p class="card__desc">
+            This will redact emails, phone numbers, and SSNs from the document body, then add a
+            <b>CONFIDENTIAL DOCUMENT</b> header. If supported, changes are tracked.
+          </p>
+
+          <button id="run" class="btn btn--primary" type="button" disabled>
+            Loading Office…
+          </button>
+
+          <div id="status" class="status" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="card card--muted">
+          <h2 class="card__title">What gets redacted</h2>
+          <ul class="list">
+            <li>Email addresses</li>
+            <li>Phone numbers</li>
+            <li>Social Security numbers</li>
+          </ul>
+          <p class="hint">
+            Tip: test with <code>Document-To-Be-Redacted.docx</code>, then try a different document to
+            confirm robustness.
+          </p>
+        </section>
+      </main>
+
+      <footer class="app__footer">
+        <span id="env" class="pill">Waiting for Office…</span>
+        <span class="sep">•</span>
+        <a class="link" href="#" id="copy-log">Copy last run summary</a>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="./dist/taskpane.js"></script>
+  </body>
 </html>

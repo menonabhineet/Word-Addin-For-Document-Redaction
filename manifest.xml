@@ -5,16 +5,13 @@
   xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
   <Id>c495822f-cbcc-454a-8fe1-5a8ab0264834</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Contoso</ProviderName>
+  <ProviderName>Abhineet Menon</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Add headers" />
-  <Description DefaultValue="Add headers to Word documents as they are opened." />
+  <DisplayName DefaultValue="Redact Add-In" />
+  <Description DefaultValue="Add confidential headers and redact sensitive information." />
   <IconUrl DefaultValue="https://localhost:3000/icon.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/icon.png" />
-  <SupportUrl DefaultValue="https://www.contoso.com/help" />
-  <AppDomains>
-    <AppDomain>https://www.contoso.com</AppDomain>
-  </AppDomains>
+  <SupportUrl DefaultValue="https://localhost:3000/index.html" />
   <Hosts>
     <Host Name="Document" />
   </Hosts>
@@ -27,11 +24,6 @@
     <Hosts>
       <Host xsi:type="Document">
         <DesktopFormFactor>
-          <GetStarted>
-            <Title resid="GetStarted.Title" />
-            <Description resid="GetStarted.Description" />
-            <LearnMoreUrl resid="GetStarted.LearnMoreUrl" />
-          </GetStarted>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <OfficeTab id="TabHome">
               <Group id="CommandsGroup">
@@ -70,19 +62,14 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/icon.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="GetStarted.LearnMoreUrl"
-          DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/index.html" />
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
-        <bt:String id="CommandsGroup.Label" DefaultValue="Doco Challenge" />
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane" />
+        <bt:String id="CommandsGroup.Label" DefaultValue="Redact" />
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Redact Document" />
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description"
-          DefaultValue="Your sample add-in loaded successfully. Go to the HOME tab and click the 'Show Task Pane' button to get started." />
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to show the task pane" />
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Open the redaction panel" />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

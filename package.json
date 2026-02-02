@@ -1,18 +1,25 @@
 {
   "name": "office-addin-challenge",
   "version": "0.0.1",
+  "private": true,
   "config": {
-    "app_to_debug": "word",
-    "app_type_to_debug": "desktop",
     "dev_server_port": 3000
   },
   "scripts": {
-    "start": "concurrently \"npm run watch\" \"npm run dev-server\" \"office-addin-debugging start manifest.xml\"",
-    "dev-server": "http-server -S --cors . -p 3000",
+    "dev": "npm run dev:https",
+    "start": "npm run start:desktop",
     "watch": "tsc -w",
+    "dev-server": "http-server -S -C cert.pem -K key.pem --cors . -p 3000",
     "build": "tsc",
-    "stop": "office-addin-debugging stop manifest.xml",
-    "validate": "office-addin-manifest validate manifest.xml"
+
+    "dev:https": "concurrently \"npm run watch\" \"npm run dev-server:https\"",
+    "dev-server:https": "http-server --cors . -p 3000 --ssl --cert %USERPROFILE%\\.office-addin-dev-certs\\localhost.crt --key %USERPROFILE%\\.office-addin-dev-certs\\localhost.key",
+
+    "install-dev-certs": "office-addin-dev-certs install",
+    "validate": "office-addin-manifest validate manifest.xml",
+
+    "start:desktop": "concurrently \"npm run watch\" \"npm run dev-server:https\" \"office-addin-debugging start manifest.xml\"",
+    "stop:desktop": "office-addin-debugging stop manifest.xml"
   },
   "dependencies": {},
   "devDependencies": {

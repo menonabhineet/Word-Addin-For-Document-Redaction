@@ -1,12 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "sourceMap": true,
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+
+    "rootDir": "src",
+    "outDir": "dist",
+
+    "types": ["office-js"],
     "strict": true,
-    "lib": ["dom", "es2015"],
-    "typeRoots": ["node_modules/@types"]
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "sourceMap": true,
+    "noEmitOnError": true
   },
-  "include": ["*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
